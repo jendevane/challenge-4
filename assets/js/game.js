@@ -5,7 +5,7 @@ const scoreText = document.getElementById('score');
 const progressBarFull = document.getElementById('progressBarFull');
 const loader = document.getElementById('loader');
 const game = document.getElementById('game');
-const timeH = document.querySelector('h2');
+const timeH = document.querySelector('timer');
 let currentQuestion = {};
 let acceptingAnswers = false;
 let score = 0;
@@ -116,15 +116,9 @@ choices.forEach((choice) => {
             getNewQuestion();
         }, 1000);
     });
+
 });
-
-
-incrementScore = (num) => {
-    score += num;
-    scoreText.innerText = score;
-   
-};
-displayTime(5);
+displayTime(15);
 function displayTime(second){
     const min = Math.floor(second / 60);
     const sec = Math.floor(second % 60);
@@ -144,3 +138,10 @@ const countDown = setInterval(()=>{
 function endCount(){
     timeH.innerHTML = 'Time out';
   }
+
+
+incrementScore = (num) => {
+    score += num;
+    scoreText.innerText = score;
+   
+};
