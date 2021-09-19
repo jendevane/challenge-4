@@ -53,3 +53,7 @@
       width: 0%
 
   }
+  #timer {
+    display:flex;
+    justify-content:space-between;
+  }
