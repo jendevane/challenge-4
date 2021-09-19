@@ -5,13 +5,24 @@ const scoreText = document.getElementById('score');
 const progressBarFull = document.getElementById('progressBarFull');
 const loader = document.getElementById('loader');
 const game = document.getElementById('game');
+const timeH = document.querySelector('h2');
 let currentQuestion = {};
 let acceptingAnswers = false;
 let score = 0;
 let questionCounter = 0;
 let availableQuesions = [];
+let timeSecond = 15;
 
-let questions = [];
+
+
+
+
+
+
+
+
+
+
 
 fetch(
     'https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple'
@@ -63,7 +74,7 @@ getNewQuestion = () => {
     if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
         localStorage.setItem('mostRecentScore', score);
         //go to the end page
-        return window.location.assign('/end.html');
+        return window.location.assign('end.html');
     }
     questionCounter++;
     progressText.innerText = `Question ${questionCounter}/${MAX_QUESTIONS}`;
@@ -107,7 +118,29 @@ choices.forEach((choice) => {
     });
 });
 
+
 incrementScore = (num) => {
     score += num;
     scoreText.innerText = score;
+   
 };
+displayTime(5);
+function displayTime(second){
+    const min = Math.floor(second / 60);
+    const sec = Math.floor(second % 60);
+    timeH.innerHTML = `
+    ${(min < 10) ? '0' : ''}${min}:${(sec < 10) ? '0' : ''}${sec}
+    `; 
+  }
+
+const countDown = setInterval(()=>{
+  timeSecond--;
+  displayTime(timeSecond);
+  if(timeSecond == 0 || timeSecond < 1){
+    endCount();
+    clearInterval(countDown);
+  }
+}, 1000);
+function endCount(){
+    timeH.innerHTML = 'Time out';
+  }
