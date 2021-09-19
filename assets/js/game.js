@@ -132,7 +132,10 @@ choices.forEach((choice) => {
      `; 
    }
    
-   function endCount(){
-     timeH.innerHTML = 'Time out';
+function endCount() {
+    timeH.innerHTML = 'Time out';
+
+    localStorage.setItem('mostRecentScore', score);
+    window.location.assign('end.html')
 }
 startGame()
