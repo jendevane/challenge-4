@@ -15,32 +15,33 @@ let currentQuestion = {};
 let acceptingAnswers = false;
 let score = 0;
 let questionCounter = 0;
-let availableQuesions = [];
+
 let timeSecond = 120;
-[
+let availableQuesions = [
+
     {
-      "question": "Inside which HTML element do we put the JavaScript??",
-      "choice1": "<script>",
-      "choice2": "<javascript>",
-      "choice3": "<js>",
-      "choice4": "<scripting>",
-      "answer": 1
-    },
-    {
-      "question": "What is the correct syntax for referring to an external script called 'xxx.js'?",
-      "choice1": "<script href='xxx.js'>",
-      "choice2": "<script name='xxx.js'>",
-      "choice3": "<script src='xxx.js'>",
-      "choice4": "<script file='xxx.js'>",
+      "question": "Math.random() returns",
+      "choice1": "a random number that can be any value",
+      "choice2": "a random number between 0 and 100",
+      "choice3": "a random number between 0 and 1",
+      "choice4": "a random number between 0 and 1000",
       "answer": 3
     },
     {
-      "question": " How do you write 'Hello World' in an alert box?",
-      "choice1": "msgBox('Hello World');",
-      "choice2": "alertBox('Hello World');",
-      "choice3": "msg('Hello World');",
-      "choice4": "alert('Hello World');",
-      "answer": 4
+      "question": "What should appear at the very end of your javascript?",
+      "choice1": "the End statment",
+      "choice2": "the </script>",
+      "choice3": "the <script>",
+      "choice4": "none of the above",
+      "answer": 2
+    },
+    {
+      "question": "Inside which HTML element do we put the Javascript?",
+      "choice1": "<js>",
+      "choice2": "<scripting>",
+      "choice3": "<script>",
+      "choice4": "<javascript>",
+      "answer": 3
     }
 ]
   
@@ -53,7 +54,7 @@ const MAX_QUESTIONS = 3;
 startGame = () => {
     questionCounter = 0;
     score = 0;
-    availableQuesions = [...questions];
+   
     getNewQuestion();
     game.classList.remove('hidden');
     loader.classList.add('hidden');
@@ -133,4 +134,5 @@ choices.forEach((choice) => {
    
    function endCount(){
      timeH.innerHTML = 'Time out';
-   }
+}
+startGame()
