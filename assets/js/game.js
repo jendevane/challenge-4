@@ -1,3 +1,22 @@
+
+
+
+
+
+const question = document.getElementById('question');
+const choices = Array.from(document.getElementsByClassName('choice-text'));
+const progressText = document.getElementById('progressText');
+const scoreText = document.getElementById('score');
+const progressBarFull = document.getElementById('progressBarFull');
+const loader = document.getElementById('loader');
+const game = document.getElementById('game');
+const timeH = document.getElementById('timer');
+let currentQuestion = {};
+let acceptingAnswers = false;
+let score = 0;
+let questionCounter = 0;
+let availableQuesions = [];
+let timeSecond = 120;
 [
     {
       "question": "Inside which HTML element do we put the JavaScript??",
@@ -23,26 +42,8 @@
       "choice4": "alert('Hello World');",
       "answer": 4
     }
-  ]
-
-
-
-
-const question = document.getElementById('question');
-const choices = Array.from(document.getElementsByClassName('choice-text'));
-const progressText = document.getElementById('progressText');
-const scoreText = document.getElementById('score');
-const progressBarFull = document.getElementById('progressBarFull');
-const loader = document.getElementById('loader');
-const game = document.getElementById('game');
-const timeH = document.getElementById('timer');
-let currentQuestion = {};
-let acceptingAnswers = false;
-let score = 0;
-let questionCounter = 0;
-let availableQuesions = [];
-let timeSecond = 120;
-
+]
+  
       
 
 //CONSTANTS
